@@ -1,9 +1,20 @@
 # ShieldRed 5 (`1.1.2` - Red Ninja Hardened Edition)
 
-Cross-platform multi-boot USB preparation utility and offline Plugson web configurator for **Windows**, **Linux**, **macOS**, and **Node.js (`npm`)**.
+**Zero-telemetry, offline-first multi-boot USB toolkit built for Red Team operators, security researchers, incident responders, and privacy-conscious engineers.**
 
 - License: **GNU General Public License v3.0** (`GPL-3.0-only`)
 - Repository: https://github.com/neithdo269/0xShieldRed-5
+
+---
+
+## Zero Data Tracking & Privacy Architecture
+
+ShieldRed 5 is hardened to operate cleanly in **air-gapped, lab, and offensive/defensive security environments** with **zero data collection**:
+
+- **No telemetry, analytics, or update phone-homes**: The CLI, Python disk/FAT16 helpers, shell workers, and Windows binaries make zero outbound network connections during USB preparation, inspection, or configuration.
+- **100% Offline Plugson Web UI**: All HTML/CSS/JS assets in `shieldred5/plugson.tar.xz` are self-contained locally—external CDN scripts, remote web fonts, Flash links, and outbound `http(s)` requests in HTML pages have been stripped. The cross-platform Plugson server binds to `127.0.0.1` by default.
+- **Artifact & Metadata Hardening**: Built with Adobe XMP metadata and PDB debug paths removed, and local operational logs stay strictly on your host (`log.txt` in portable mode or `~/.local/state/shieldred5/log.txt` when installed system-wide—excluded from Git and npm packages).
+- **Operator Control**: Toggle UEFI Secure Boot shim (`-s`/`-S`), reserve trailing disk space (`-r`), configure GRUB2/Ventoy boot password protection, and perform non-destructive upgrades (`-u`) without touching your ISO/payload partition.
 
 ---
 
@@ -31,7 +42,7 @@ sudo shieldred5 --install-deps     # Auto-install required Linux distro packages
 sudo shieldred5 -i /dev/sdX        # Linux USB install
 sudo shieldred5 -i /dev/diskN      # macOS USB install
 shieldred5                         # Launch Windows GUI (x64 or Win32)
-shieldred5 --plugson [USB_DIR]     # Cross-platform Plugson Web UI (port 24680)
+shieldred5 --plugson [USB_DIR]     # Cross-platform localhost Plugson Web UI (port 24680)
 shieldred5-plugson [USB_DIR]       # Direct Plugson Web UI server
 ```
 
@@ -115,4 +126,3 @@ npm test
 npm run doctor
 npm run pack:check
 ```
-
