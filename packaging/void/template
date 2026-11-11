@@ -1,0 +1,16 @@
+# Template file for 'shieldred5' (Void Linux xbps-src)
+pkgname=shieldred5
+version=1.1.2
+revision=1
+archs="noarch"
+short_desc="Multi-boot USB preparation utility and offline Plugson configurator"
+maintainer="ShieldRed 5 Maintainers <maintainers@shieldred5.local>"
+license="GPL-3.0-only"
+homepage="https://www.gnu.org/licenses/gpl-3.0.html"
+depends="bash parted dosfstools exfatprogs xz python3 util-linux"
+nostrip=yes
+
+do_install() {
+	bash ./install.sh --prefix /usr --destdir "${DESTDIR}"
+}
+

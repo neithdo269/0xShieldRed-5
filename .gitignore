@@ -1,0 +1,11 @@
+log.txt
+preview_ui.obj
+node_modules/
+dist/
+**/__pycache__/
+*.pyc
+*.tgz
+*.deb
+*.rpm
+*.pkg.tar.*
+*.apk

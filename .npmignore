@@ -1,0 +1,11 @@
+log.txt
+preview_ui.obj
+test/
+.git/
+**/__pycache__/
+*.pyc
+*.tgz
+*.deb
+*.rpm
+*.pkg.tar.*
+*.apk

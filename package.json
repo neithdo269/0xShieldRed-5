@@ -1,0 +1,59 @@
+{
+  "name": "shieldred5",
+  "version": "1.1.2",
+  "description": "ShieldRed 5 cross-platform multi-boot USB preparation utility and offline Plugson web configurator for Windows, Linux, and macOS",
+  "license": "GPL-3.0-only",
+  "keywords": [
+    "shieldred5",
+    "multiboot",
+    "usb",
+    "uefi",
+    "grub2",
+    "bootable-usb",
+    "iso",
+    "plugson",
+    "linux",
+    "macos",
+    "windows"
+  ],
+  "bin": {
+    "shieldred5": "bin/shieldred5.js",
+    "shieldred5-plugson": "bin/shieldred5-plugson.js"
+  },
+  "scripts": {
+    "start": "node bin/shieldred5.js",
+    "plugson": "node bin/shieldred5-plugson.js",
+    "doctor": "node bin/shieldred5.js --doctor",
+    "help": "node bin/shieldred5.js --help",
+    "test": "node --test test/cli.test.js",
+    "pack:check": "npm pack --dry-run"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "os": [
+    "linux",
+    "darwin",
+    "win32"
+  ],
+  "files": [
+    "bin/",
+    "boot/",
+    "plugin/",
+    "shieldred5/",
+    "tool/",
+    "packaging/",
+    "altexe/",
+    "ShieldRed5_Linux.sh",
+    "ShieldRed5_macOS.sh",
+    "install.sh",
+    "uninstall.sh",
+    "ShieldRed5.exe",
+    "ShieldRed5Plugson.exe",
+    "ShieldRed5Vlnk.exe",
+    "ShieldRed5.ini",
+    "ShieldRed5.ico",
+    "README.txt"
+  ]
+}
+

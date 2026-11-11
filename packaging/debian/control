@@ -1,0 +1,13 @@
+Package: shieldred5
+Version: 1.1.2
+Section: utils
+Priority: optional
+Architecture: all
+Maintainer: ShieldRed 5 Maintainers <maintainers@shieldred5.local>
+Depends: bash, parted, dosfstools, exfatprogs | exfat-utils, xz-utils, python3, util-linux
+Recommends: nodejs (>= 18)
+Description: Multi-boot USB preparation utility and offline Plugson configurator
+ ShieldRed 5 (Red Ninja Hardened Edition) prepares bootable multi-ISO USB
+ drives supporting MBR and GPT, BIOS and UEFI (including Secure Boot),
+ non-destructive upgrades, and an optional offline Plugson web configurator.
+

@@ -1,0 +1,17 @@
+# Maintainer: ShieldRed 5 Maintainers
+pkgname=shieldred5
+pkgver=1.1.2
+pkgrel=0
+pkgdesc="Multi-boot USB preparation utility and offline Plugson configurator"
+url="https://www.gnu.org/licenses/gpl-3.0.html"
+arch="noarch"
+license="GPL-3.0-only"
+depends="bash parted dosfstools exfatprogs xz python3 util-linux coreutils"
+options="!check"
+source="$pkgname-$pkgver.tar.gz"
+
+package() {
+	cd "$builddir"
+	bash ./install.sh --prefix /usr --destdir "$pkgdir"
+}
+

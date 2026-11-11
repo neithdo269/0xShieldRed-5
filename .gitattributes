@@ -1,0 +1,17 @@
+* text=auto
+*.sh text eol=lf
+*.py text eol=lf
+*.js text eol=lf
+*.json text eol=lf
+*.spec text eol=lf
+*.ebuild text eol=lf
+*.nix text eol=lf
+PKGBUILD text eol=lf
+APKBUILD text eol=lf
+control text eol=lf
+template text eol=lf
+*.exe binary
+*.ico binary
+*.img binary
+*.xz binary
+*.png binary
