@@ -3,6 +3,7 @@ Version:        1.1.2
 Release:        1%{?dist}
 Summary:        Multi-boot USB preparation utility and offline Plugson configurator
 License:        GPL-3.0-only
+URL:            https://github.com/neithdo269/0xShieldRed-5
 BuildArch:      noarch
 Source0:        %{name}-%{version}.tar.gz
 

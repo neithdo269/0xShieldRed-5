@@ -4,6 +4,7 @@ pkgver=1.1.2
 pkgrel=1
 pkgdesc="Multi-boot USB preparation utility and offline Plugson configurator (Red Ninja Hardened Edition)"
 arch=('any')
+url="https://github.com/neithdo269/0xShieldRed-5"
 license=('GPL-3.0-only')
 depends=('bash' 'parted' 'dosfstools' 'exfatprogs' 'xz' 'python' 'util-linux')
 optdepends=('nodejs: run the cross-platform shieldred5-plugson web configurator')

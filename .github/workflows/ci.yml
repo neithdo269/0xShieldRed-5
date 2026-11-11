@@ -1,0 +1,65 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  cross-platform-test:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ ubuntu-latest, macos-latest, windows-latest ]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Run Node CLI & Plugson test suite
+        run: npm test
+
+      - name: Run npm pack dry-run
+        run: npm run pack:check
+
+      - name: Verify Python scripts compile
+        shell: bash
+        run: python3 -m py_compile tool/shieldred5_helper.py tool/shieldred5_macos.py || python -m py_compile tool/shieldred5_helper.py tool/shieldred5_macos.py
+
+      - name: Validate shell script syntax (Linux & macOS)
+        if: runner.os != 'Windows'
+        run: |
+          bash -n ShieldRed5_Linux.sh ShieldRed5_macOS.sh install.sh uninstall.sh tool/ShieldRed5Worker.sh tool/shieldred5_lib.sh packaging/debian/build-deb.sh
+          bash ./ShieldRed5_Linux.sh --version || true
+          bash ./ShieldRed5_Linux.sh --help
+
+      - name: Check Linux tools & test staging install/uninstall (Ubuntu)
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y parted dosfstools exfatprogs xz-utils util-linux
+          bash ./ShieldRed5_Linux.sh --doctor
+          STAGE="$(mktemp -d)"
+          bash ./install.sh --prefix /usr --destdir "$STAGE"
+          test -x "$STAGE/usr/bin/shieldred5"
+          test -x "$STAGE/usr/bin/shieldred5-plugson"
+          "$STAGE/usr/bin/shieldred5" --version
+          bash ./uninstall.sh --prefix /usr --destdir "$STAGE"
+          test ! -e "$STAGE/usr/bin/shieldred5"
+          rm -rf "$STAGE"
+
+      - name: Test local npm install & Plugson CLI
+        if: runner.os != 'Windows'
+        run: |
+          NPM_TMP="$(mktemp -d)"
+          npm install --prefix "$NPM_TMP" .
+          "$NPM_TMP/node_modules/.bin/shieldred5" --version
+          "$NPM_TMP/node_modules/.bin/shieldred5-plugson" --help
+          rm -rf "$NPM_TMP"
+

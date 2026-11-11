@@ -4,7 +4,7 @@
 EAPI=8
 
 DESCRIPTION="Multi-boot USB preparation utility and offline Plugson configurator"
-HOMEPAGE="https://www.gnu.org/licenses/gpl-3.0.html"
+HOMEPAGE="https://github.com/neithdo269/0xShieldRed-5"
 SRC_URI="${P}.tar.gz"
 
 LICENSE="GPL-3"

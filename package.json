@@ -3,6 +3,14 @@
   "version": "1.1.2",
   "description": "ShieldRed 5 cross-platform multi-boot USB preparation utility and offline Plugson web configurator for Windows, Linux, and macOS",
   "license": "GPL-3.0-only",
+  "homepage": "https://github.com/neithdo269/0xShieldRed-5",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/neithdo269/0xShieldRed-5.git"
+  },
+  "bugs": {
+    "url": "https://github.com/neithdo269/0xShieldRed-5/issues"
+  },
   "keywords": [
     "shieldred5",
     "multiboot",
@@ -53,6 +61,7 @@
     "ShieldRed5Vlnk.exe",
     "ShieldRed5.ini",
     "ShieldRed5.ico",
+    "README.md",
     "README.txt"
   ]
 }

@@ -221,7 +221,8 @@ test("Unix scripts and packaging files use LF line endings and match version", (
     "packaging/alpine/APKBUILD",
     "packaging/void/template",
     "packaging/gentoo/shieldred5-1.1.2.ebuild",
-    "packaging/nix/flake.nix"
+    "packaging/nix/flake.nix",
+    ".github/workflows/ci.yml"
   ];
 
   for (const rel of unixFiles) {
